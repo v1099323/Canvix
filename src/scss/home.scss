@@ -58,7 +58,7 @@
     opacity: 0;
     transform: translateX(toRem(-50));
 
-    .loaded & {
+    ._watcher-view & {
       transition: opacity 0.3s 0.3s, transform 0.3s 0.3s;
       transform: translate(0);
       opacity: 1;
@@ -81,7 +81,7 @@
     opacity: 0;
     transform: translateX(toRem(-50));
 
-    .loaded & {
+    ._watcher-view & {
       transition: opacity 0.3s 0.5s, transform 0.3s 0.5s;
       transform: translate(0);
       opacity: 1;
@@ -92,7 +92,7 @@
     opacity: 0;
     transform: translateX(toRem(-50));
 
-    .loaded & {
+    ._watcher-view & {
       transition: opacity 0.3s 0.7s, transform 0.3s 0.7s, background-color 0.3s, color 0.3s;
       transform: translate(0);
       opacity: 1;
@@ -183,7 +183,7 @@
     opacity: 0;
     transform: scale(0);
 
-    .loaded & {
+    ._watcher-view & {
       transition: opacity 0.3s, transform 0.3s;
       transform: scale(1);
       opacity: 1;
