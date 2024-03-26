@@ -291,25 +291,11 @@
       border-radius: toRem(20);
       object-fit: cover;
 
-      &:nth-child(3) {
-        max-width: toRem(200);
-        position: absolute;
-        top: toRem(71);
-        left: toRem(316);
-        @media (max-width: em(650)) {
-          display: none;
-        }
-      }
-
-      &:nth-child(1) {
-        align-self: flex-start;
-      }
-
-      &:nth-child(2) {
-        align-self: flex-end;
-      }
+      
     }
   }
+
+  
 }
 .content-our-mission {
   &__text {
@@ -362,6 +348,27 @@
   }
 }
 .images-our-missions {
+
+  &__image {
+    &:nth-child(3) {
+      max-width: toRem(200);
+      position: absolute;
+      top: toRem(71);
+      left: toRem(316);
+      @media (max-width: em(650)) {
+        display: none;
+      }
+    }
+
+    &:nth-child(1) {
+      align-self: flex-start;
+    }
+
+    &:nth-child(2) {
+      align-self: flex-end;
+    }
+  }
+  
   &__body {
   }
 
