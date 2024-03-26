@@ -1,0 +1,183 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  transition: background-color 0.3s;
+
+  &._header-scroll {
+    background-color: $lightBlackColor;
+  }
+
+  &__container {
+    @include adaptiveValue("min-height", 98, 80);
+    display: flex;
+    gap: toRem(20);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+    svg,
+    path {
+      transition: fill 0.3s, fill-opacity 0.3s;
+    }
+
+    .hero-header & {
+      svg,
+      path {
+        fill: #fff;
+        fill-opacity: 1;
+      }
+    }
+
+    ._header-scroll &,
+    .menu-open & {
+      svg,
+      path {
+        fill: #fff;
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  &__menu {
+    @media (max-width: $mobile) {
+      order: 3;
+    }
+  }
+
+  &__actions {
+  }
+}
+.menu {
+  &__icon {
+  }
+
+  &__body {
+    @media (max-width: $mobileSmall) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: toRem(40);
+    row-gap: toRem(5);
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-content: center;
+      row-gap: toRem(20);
+      flex: 1;
+    }
+  }
+
+  &__item {
+  }
+
+  &__link {
+    font-family: "DM Sans";
+    font-size: toRem(20);
+    line-height: 130%;
+    color: $lightBlackColor;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: toRem(2);
+      width: 0;
+      border-radius: toRem(4);
+      background-color: $lightBlackColor;
+      transition: width 0.3s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: $mobile) {
+      @include adaptiveValue("font-size", 32, 24);
+    }
+
+    ._header-scroll &,
+    .menu-open & {
+      color: rgb(251, 251, 251);
+      &::before {
+        background-color: rgb(251, 251, 251);
+      }
+    }
+
+    .hero-header & {
+      color: rgb(251, 251, 251);
+      &::before {
+        background-color: rgb(251, 251, 251);
+      }
+    }
+  }
+}
+
+.actions-header {
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $mobile) {
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    padding: toRem(8) toRem(15);
+    border-radius: 23px;
+    background-color: $lightBlackColor;
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    line-height: 127.777778%;
+    letter-spacing: toRem(0.03);
+    color: rgb(251, 251, 251);
+    transition: background-color 0.3s;
+
+    ._header-scroll &,
+    .menu-open & {
+      color: $lightBlackColor;
+      background-color: rgb(251, 251, 251);
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgb(228, 225, 225);
+        }
+      }
+    }
+
+    .hero-header & {
+      color: $lightBlackColor;
+      background-color: rgb(251, 251, 251);
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: rgb(228, 225, 225);
+        }
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(12, 12, 12, 0.8);
+      }
+    }
+  }
+}

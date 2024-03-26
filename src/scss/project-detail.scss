@@ -1,0 +1,238 @@
+.project-detail {
+  @include adaptiveValue("padding-top", 100, 80);
+
+  &__container {
+  }
+
+  &__top {
+    @include adaptiveValue("padding-bottom", 100, 30);
+  }
+
+  &__image {
+    border-radius: toRem(20);
+    aspect-ratio: 1400 / 590;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__items {
+    margin-top: toRem(-55);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include adaptiveValue("gap", 45, 15);
+
+    @media (max-width: $mobile) {
+      margin-top: toRem(30);
+    }
+  }
+
+  &__item {
+    border-radius: toRem(15);
+    background-color: $mainColor;
+    padding: toRem(30);
+
+    @media (max-width: $mobile) {
+      flex: 1 1 toRem(250);
+      padding: toRem(15);
+    }
+  }
+
+  &__content {
+  }
+}
+.item-detail {
+  display: grid;
+  gap: toRem(10);
+  &__title {
+    font-weight: 600;
+    color: #fff;
+    font-size: toRem(20);
+    line-height: 115%;
+  }
+
+  &__text {
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    color: #fff;
+    line-height: toRem(23);
+    letter-spacing: toRem(0.03);
+  }
+}
+.content-detail {
+  @include adaptiveValue("padding-bottom", 100, 30);
+
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 48, 20);
+
+    @extend %listCounter;
+
+    @include adaptiveValue("padding-bottom", 80, 30);
+  }
+
+  &__item {
+  }
+
+  &__title {
+    padding-left: toRem(30);
+    font-weight: 600;
+    font-size: toRem(20);
+    line-height: 115%;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+
+  &__text {
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    line-height: 127.777778%;
+    letter-spacing: toRem(0.03);
+    color: $lightBlackColor;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: toRem(24);
+      }
+    }
+
+    span {
+      max-width: toRem(525);
+      display: block;
+      padding-top: toRem(12);
+    }
+  }
+
+  &__images {
+    display: grid;
+    @include adaptiveValue("gap", 74, 20);
+    grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+  }
+
+  &__image {
+    aspect-ratio: 417 / 400;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+//========================================================================================================================================================
+
+.recent {
+  @include adaptiveValue("padding-bottom", 100, 30);
+  &__container {
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 64, 38);
+    line-height: 117.1875%;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 80, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 47, 20);
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: em(600)) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__item {
+  }
+}
+.item-recent {
+  &__link-image {
+    display: block;
+    border-radius: toRem(20);
+    overflow: hidden;
+    position: relative;
+
+    padding-bottom: 103.45%;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    &::after {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: toRem(50);
+      height: toRem(50);
+      background: url("@img/project-detail/link-arrow.svg") center / cover
+        no-repeat;
+      z-index: 3;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__linktitle {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 30, 24);
+    line-height: 116.666667%;
+    padding-top: toRem(15);
+
+    a {
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__text {
+    font-family: "DM Sans";
+    color: $lightBlackColor;
+    font-size: toRem(18);
+    line-height: 127.777778%;
+    letter-spacing: toRem(0.03);
+  }
+}

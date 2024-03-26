@@ -1,0 +1,209 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.block-header {
+  display: flex;
+  flex-direction: column;
+
+  &__subtitle {
+    font-weight: 600;
+    @include adaptiveValue("font-size", 30, 24);
+    line-height: 116.666667%;
+    color: $lightGreenColor;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+
+    transition:
+      opacity 0.3s 0.1s,
+      transform 0.3s 0.1s;
+    transform: translateX(toRem(30));
+    opacity: 0;
+
+    .block-header--center & {
+      transform: translateY(toRem(30));
+      opacity: 0;
+    }
+
+    ._watcher-view & {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  &__title {
+    max-width: toRem(700);
+    font-weight: 600;
+    @include adaptiveValue("font-size", 64, 38);
+    line-height: 117.1875%;
+
+    &--white {
+      color: #fff;
+    }
+
+    span {
+      color: $lightGreenColor;
+    }
+
+    transition:
+      opacity 0.3s 0.2s,
+      transform 0.3s 0.2s;
+    transform: translateX(toRem(30));
+    opacity: 0;
+
+    .block-header--center & {
+      transform: translateY(toRem(30));
+      opacity: 0;
+    }
+
+    ._watcher-view & {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  &--center {
+    align-items: center;
+    text-align: center;
+
+    // .block-header__subtitle {
+    //   transition: opacity 0.3s;
+    //   opacity: 0;
+
+    //   ._watcher-view & {
+    //     opacity: 1;
+    //   }
+    // }
+
+    // .block-header__title {
+    //   transition: opacity 0.3s;
+    //   opacity: 0;
+
+    //   ._watcher-view & {
+    //     opacity: 1;
+    //   }
+    // }
+  }
+}
+
+.button {
+  border-radius: toRem(23);
+  background-color: rgb(251, 251, 251);
+  padding: toRem(11) toRem(23) toRem(11) toRem(48);
+  font-weight: 300;
+  font-family: "DM Sans";
+  font-size: toRem(18);
+  line-height: 130%;
+  position: relative;
+  transition: background-color 0.3s;
+
+  @media (max-width: $mobileSmall) {
+    width: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: toRem(10);
+    transform: translateY(-50%);
+    background-color: $mainColor;
+    background-image: url("@img/icons/arrow-white.svg");
+    background-repeat: no-repeat;
+    background-size: toRem(5);
+    background-position: center;
+    border-radius: 50%;
+    width: toRem(28);
+    height: toRem(28);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $darkGreyColor;
+    }
+  }
+
+  &--dark {
+    background-color: $mainColor;
+    color: #fff;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgb(51, 51, 51);
+      }
+    }
+
+    &::before {
+      background-color: #fff;
+      background-image: url("@img/icons/arrow-dark.svg");
+    }
+  }
+}
+
+.get-to-work {
+  @include adaptiveValue("padding-bottom", 100, 30);
+
+  &__container {
+  }
+
+  &__body {
+    @include adaptiveValue("padding-top", 45, 20);
+    @include adaptiveValue("padding-bottom", 45, 20);
+    padding-left: toRem(20);
+    padding-right: toRem(20);
+    border-radius: toRem(20);
+    background: url("@img/get-to-work/bg.jpeg") center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: $mobileSmall) {
+      border-radius: 0;
+      margin: 0 toRem(-15);
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    color: rgb(251, 251, 251);
+    @include adaptiveValue("font-size", 45, 32);
+    line-height: 117.777778%;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+
+  &__button {
+    border-radius: toRem(23);
+    border: toRem(1) solid rgb(251, 251, 251);
+    padding: toRem(8) toRem(15);
+    color: rgb(251, 251, 251);
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    line-height: 127.777778%; /* 23/18 */
+    letter-spacing: toRem(0.03);
+    background-color: transparent;
+    transition: background-color 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}

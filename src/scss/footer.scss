@@ -1,0 +1,217 @@
+//====================================================================================================
+.footer {
+  background-color: $mainColor;
+  @include adaptiveValue("padding-top", 100, 30);
+  color: #fff;
+
+  &__container {
+  }
+
+  &__top {
+    @include adaptiveValue("padding-bottom", 100, 30);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(30);
+    justify-content: space-between;
+  }
+
+  &__item {
+    &:nth-child(1) {
+      flex: 0 1 toRem(357);
+    }
+    &:nth-child(4) {
+      flex: 0 1 toRem(433);
+    }
+  }
+
+  &__bottom {
+  }
+}
+.item-footer {
+  &__logo {
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+
+  &__text {
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    line-height: 127.777778%;
+    letter-spacing: 3%;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: toRem(20);
+    line-height: 115%;
+  }
+
+  &__list {
+    padding-top: toRem(24);
+    display: grid;
+    gap: toRem(15);
+  }
+
+  &__item {
+  }
+
+  &__link {
+    font-family: "DM Sans";
+    font-size: toRem(14);
+    line-height: 131.25%;
+    letter-spacing: toRem(0.3);
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.form {
+  margin-top: toRem(20);
+
+  @media (max-width: $mobileSmall) {
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: toRem(20);
+    padding: toRem(10) toRem(15);
+  }
+
+  position: relative;
+  &__input {
+    background-color: #fff;
+    border-radius: toRem(40);
+    width: 100%;
+    padding: toRem(22) toRem(130) toRem(22) toRem(22);
+    font-weight: 300;
+    font-family: "DM Sans";
+    font-size: toRem(16);
+    line-height: 143.75%;
+    letter-spacing: 3%;
+
+    @media (max-width: $mobileSmall) {
+      padding: toRem(15);
+      border-radius: toRem(0);
+    }
+
+    &::placeholder {
+      color: $lightBlackColor;
+      opacity: 1;
+      font-weight: 400;
+      font-family: "DM Sans";
+      font-size: toRem(18);
+      line-height: 143.75%;
+      letter-spacing: toRem(0.3);
+    }
+
+    &._form-error {
+      outline: toRem(2) solid red;
+
+      &::placeholder {
+        color: red;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: toRem(10);
+    font-weight: 400;
+    font-family: "DM Sans";
+    font-size: toRem(18);
+    line-height: 143.75%;
+    letter-spacing: toRem(0.3);
+    padding: toRem(8) toRem(15);
+    border-radius: toRem(20);
+    background-color: $mainColor;
+    transition: background-color 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgb(51, 51, 51);
+      }
+    }
+
+    @media (max-width: $mobileSmall) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+    }
+  }
+
+  .form__error {
+    display: none;
+  }
+}
+.bottom-footer {
+  &__items {
+    border-top: toRem(1) solid $lightGreyColor;
+    padding-top: toRem(30);
+    @include adaptiveValue("padding-bottom", 60, 30);
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(20);
+    justify-content: space-between;
+  }
+
+  &__item {
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: toRem(20);
+    line-height: 115%;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
+    }
+  }
+
+  &__link {
+    font-weight: 300;
+    font-family: "DM Sans";
+    font-size: toRem(14);
+    line-height: 131.25%;
+    letter-spacing: 3%;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.social {
+  display: flex;
+  gap: toRem(30);
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: toRem(50);
+    height: toRem(50);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $darkGreyColor;
+      }
+    }
+  }
+}
+
+//====================================================================================================
