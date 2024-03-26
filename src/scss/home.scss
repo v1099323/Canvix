@@ -180,14 +180,14 @@
       border-radius: 50%;
     }
 
-    opacity: 0;
-    transform: scale(0);
+    // opacity: 0;
+    // transform: scale(0);
 
-    ._watcher-view & {
-      transition: opacity 0.3s, transform 0.3s;
-      transform: scale(1);
-      opacity: 1;
-    }
+    // ._watcher-view & {
+    //   transition: opacity 0.3s, transform 0.3s;
+    //   transform: scale(1);
+    //   opacity: 1;
+    // }
   }
 
   &__image-line-1 {
