@@ -345,31 +345,35 @@
       flex: 1;
     }
 
-    img,
-    picture {
+   
+    img {
       display: block;
       max-width: 100%;
       border-radius: toRem(20);
-
-      &:nth-child(2),
-      &:nth-child(3) {
-        position: absolute;
-        z-index: -1;
-      }
-
-      &:nth-child(2) {
-        opacity: 0.2;
-        @include adaptiveValue("top", -31, -15);
-        @include adaptiveValue("left", -52, -25);
-      }
-
-      &:nth-child(3) {
-        opacity: 0.1;
-        @include adaptiveValue("top", -63, -30);
-        @include adaptiveValue("left", -104, -52);
-      }
     }
   }
+
+  &__image {
+    max-width: 100%;
+    &:nth-child(2),
+    &:nth-child(3) {
+      position: absolute;
+      z-index: -1;
+    }
+
+    &:nth-child(2) {
+      opacity: 0.2;
+      @include adaptiveValue("top", -31, -15);
+      @include adaptiveValue("left", -52, -25);
+    }
+
+    &:nth-child(3) {
+      opacity: 0.1;
+      @include adaptiveValue("top", -63, -30);
+      @include adaptiveValue("left", -104, -52);
+    }
+  }
+
 }
 
 .item-about {
