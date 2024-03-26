@@ -13,7 +13,6 @@
     }
   }
 
-
   &__content {
     @include adaptiveValue("padding-top", 90, 0, 0, $containerWidth, 767.98);
   }
@@ -23,19 +22,18 @@
     margin-left: toRem(34);
     position: relative;
 
-    
     @media (max-width: $pc) {
       margin-left: 0;
     }
 
-    &::before{
-      content:'';
+    &::before {
+      content: "";
       position: absolute;
       top: toRem(-49);
       left: toRem(-291);
       width: toRem(183);
       height: toRem(192);
-      background: url('@img/hero/decor.png') center / cover no-repeat; 
+      background: url("@img/hero/decor.png") center / cover no-repeat;
     }
   }
 
@@ -59,7 +57,9 @@
     transform: translateX(toRem(-50));
 
     ._watcher-view & {
-      transition: opacity 0.3s 0.3s, transform 0.3s 0.3s;
+      transition:
+        opacity 0.3s 0.3s,
+        transform 0.3s 0.3s;
       transform: translate(0);
       opacity: 1;
     }
@@ -72,7 +72,6 @@
     color: #fff;
     line-height: 127.777778%;
     letter-spacing: 3%;
-    
 
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 32, 24);
@@ -82,7 +81,9 @@
     transform: translateX(toRem(-50));
 
     ._watcher-view & {
-      transition: opacity 0.3s 0.5s, transform 0.3s 0.5s;
+      transition:
+        opacity 0.3s 0.5s,
+        transform 0.3s 0.5s;
       transform: translate(0);
       opacity: 1;
     }
@@ -93,7 +94,11 @@
     transform: translateX(toRem(-50));
 
     ._watcher-view & {
-      transition: opacity 0.3s 0.7s, transform 0.3s 0.7s, background-color 0.3s, color 0.3s;
+      transition:
+        opacity 0.3s 0.7s,
+        transform 0.3s 0.7s,
+        background-color 0.3s,
+        color 0.3s;
       transform: translate(0);
       opacity: 1;
     }
@@ -178,16 +183,18 @@
       width: 100%;
       height: auto;
       border-radius: 50%;
+
+      opacity: 0;
+      transform: scale(0);
+
+      ._watcher-view & {
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+        transform: scale(1);
+        opacity: 1;
+      }
     }
-
-    // opacity: 0;
-    // transform: scale(0);
-
-    // ._watcher-view & {
-    //   transition: opacity 0.3s, transform 0.3s;
-    //   transform: scale(1);
-    //   opacity: 1;
-    // }
   }
 
   &__image-line-1 {
@@ -346,7 +353,6 @@
       flex: 1;
     }
 
-   
     img {
       display: block;
       max-width: 100%;
@@ -374,7 +380,6 @@
       @include adaptiveValue("left", -104, -52);
     }
   }
-
 }
 
 .item-about {
